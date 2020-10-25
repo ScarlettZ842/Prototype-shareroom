@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- link to the css and js files -->
+    <link rel="stylesheet" href="shareroom.css" type="text/css" />
+    <script defer src="shareroom.js" type="text/javascript"></script>
+    <title>
+        UoA Share Room
+    </title>
+</head>
+<body>
+  <div>
+    <!-- Navigation bar on the left hand side -->
+    <div id="sideMenu" class="sideMenuClass">
+      <img id="logo" src="./img/University_of_Auckland_logo.png"/>
+      <a href="#">UoA ShareRoom</a>
+      <hr>
+      <a href="#">&#43; New</a>
+      <a href="#">&#x2606; Starred</a>
+      <a href="#">&#x1f6aa; My Room</a>
+      <a href="#">&#x1f465; Shared Room</a>
+      <a href="#">&#128337; Recent</a>
+      <a href="#">&#128465; Bin</a>
+      <hr>
+      <a href="#">&#9779; Storage</a>
+    </div>
+
+    <!-- the top bar with search placeholder and profile to show email of user -->
+    <div class="topBar">
+      <div class="profile-container">
+        <a>&#x1F464; abcd123@aucklanduni.ac.nz</a>
+      </div>
+      <div class="search-container">
+          <input type="text" placeholder="Search...">
+          <button>&#x1f50d;</button>
+      </div>
+    </div>
+
+    <!-- Quick access placeholder, where recently-opened files are placed -->
+    <div class="quick-access-class">
+      <h3>Quick Access</h3>
+      <div class="file-grid">
+        <div class="file-item">
+          <div class="file-row">
+            <img class="file-img" src="./img/pdf.PNG"/>
+            <div class="file-column-1"><p>PDF</p></div>
+            <div class="file-column-2"><p>File Name 1</p></div>
+          </div>
+          <button id="share-button-1" class="share-button" onclick="shareFile('share-button-1')">Share</button>
+        </div>
+        <div class="file-item">
+          <div class="file-row">
+            <img class="file-img" src="./img/pdf.PNG"/>
+            <div class="file-column-1"><p>DOC</p></div>
+            <div class="file-column-2"><p>File Name 2</p></div>
+          </div>
+          <button id="share-button-2" class="share-button" onclick="shareFile('share-button-2')">Share</button>
+        </div>
+        <div class="file-item">
+          <div class="file-row">
+            <img class="file-img" src="./img/pdf.PNG"/>
+            <div class="file-column-1"><p>JS</p></div>
+            <div class="file-column-2"><p>File Name 3</p></div>
+          </div>
+          <button id="share-button-3" class="share-button" onclick="shareFile('share-button-3')">Share</button>
+        </div>
+        <div class="file-item">
+          <div class="file-row">
+            <img class="file-img" src="./img/pdf.PNG"/>
+            <div class="file-column-1"><p>PPT</p></div>
+            <div class="file-column-2"><p>File Name 4</p></div>
+          </div>
+          <button id="share-button-4" class="share-button" onclick="shareFile('share-button-4')">Share</button>
+        </div>
+        <div class="file-item">
+          <div class="file-row">
+            <img class="file-img" src="./img/pdf.PNG"/>
+            <div class="file-column-1"><p>HTML</p></div>
+            <div class="file-column-2"><p>File Name 5</p></div>
+          </div>
+          <button id="share-button-5" class="share-button" onclick="shareFile('share-button-5')">Share</button>
+        </div>
+      </div>
+      <br>
+      <hr>
+    </div>
+
+    <!-- The pop up box for sharing a file -->
+    <div id="myShareModal" class="share-modal">
+      <div class="modal-content">
+        <span class="close-model" onclick="closeModal('myShareModal', 'close-model')">&times;</span>
+        <h3>Share with others</h3>
+        <div class="share-group">
+          <label class="share-group-label" id="canvas">Canvas Group</label>
+          <select name="canvas-share" class="share-box" id="canvas-share-box">
+            <option value="cs345">CS345 Group 9</option>
+            <option value="cs369">CS369 Group 17</option>
+            <option value="is330">INFOSYS330 Group 11</option>
+          </select>
+          <select name="authorization" class="autho-box">
+            <option value="view">&#128065; View</option>
+            <option value="edit">&#128394; Edit</option>
+          </select>
+        </div>
+        <div class="share-group">
+          <label class="share-group-label" id="people">People</label>
+          <input class="share-box" type="text" placeholder="Enter names or email address...">
+          <select name="authorization" class="autho-box">
+            <option value="view">&#128065; View</option>
+            <option value="edit">&#128394; Edit</option>
+          </select>
+        </div>
+        <div class="share-group">
+          <label class="share-group-label" id="link">Link</label>
+          <input class="share-box" type="text" value="https://www.auckland.ac.nz/en.html" id="link-share">
+          <select name="authorization" class="autho-box">
+            <option value="view">&#128065; View</option>
+            <option value="edit">&#128394; Edit</option>
+          </select>
+        </div>
+        <p>Shared with Ryan, Peter, and 2 others</p>
+        <button onclick="closeModal('myShareModal', 'close-model')">Cancel</button>
+        <button id="confirm-button" class="confirm-button" onclick="confirmShare()">Confirm</button>
+      </div>
+    </div>
+
+    <!-- pop up modal to show successful message -->
+    <div id="mySuccessfulModal" class="succeed-modal">
+      <div class="succeed-modal-content">
+        <span class="successful-close-model" onclick="closeModal('mySuccessfulModal', 'successful-close-model')">&times;</span>
+        <p>Successfully Shared!</p>
+      </div>
+    </div>
+
+    <!-- the contacts containers, where to find all contacts -->
+    <div class="contact-container">
+      <h3>Contacts</h3>
+      <!-- Contacts in canvas group, expansible -->
+      <button class="canvas-group" onclick="showCanvasContacts()">Canvas Groups</button>
+      <div class="contact-content">
+        <table class="canvas-table">
+          <tr>
+            <th>Group Name</th>
+            <th>Course Name</th>
+            <th>Action</th>
+            <th>Next Meeting</th>
+          </tr>
+          <tr>
+            <td>CS345 Group 9</td>
+            <td>COMPSCI 345</td>
+            <td>&#128172; &#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>09:00 July 19, 2020</td>
+          </tr>
+          <tr>
+            <td>CS369 Group 17</td>
+            <td>COMPSCI 369</td>
+            <td>&#128172;	&#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>13:00 July 31, 2020</td>
+          </tr>
+          <tr>
+            <td>INFOSYS330 Group 11</td>
+            <td>INFOSYS 330</td>
+            <td>&#128172; &#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>15:00 August 13, 2020</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Contacts in uoa group, expansible -->
+      <button class="uoa-group" onclick="showUoAContacts()">UoA Contacts</button>
+      <div class="contact-content">
+        <table class="uoa-table">
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Action</th>
+            <th>Email</th>
+          </tr>
+          <tr>
+            <td>Benedict Cumberbatch</td>
+            <td>BUSAN 101</td>
+            <td>&#128172; &#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>bce143@aucklanduni.ac.nz</td>
+          </tr>
+          <tr>
+            <td>Jennifer Aniston</td>
+            <td>COMPSCI 330</td>
+            <td>&#128172;	&#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>jan579@aucklanduni.ac.nz</td>
+          </tr>
+          <tr>
+            <td>Bill Clinton</td>
+            <td>INFOSYS 222</td>
+            <td>&#128172; &#x1f4de; <img class="icon-img" src="./img/video-call.png"/></td>
+            <td>bch086@aucklanduni.ac.nz</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

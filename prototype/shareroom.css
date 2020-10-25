@@ -1,0 +1,258 @@
+* {
+    font-family: 'Courier New';
+}
+
+#logo {
+  height: 80px;
+  width: auto;
+  padding-left: 50px;
+}
+
+/* design for the side navigation menu */
+.sideMenuClass {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  padding-top: 15px;
+}
+
+.sideMenuClass a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  transition: 0.3s;
+  filter: grayscale(100%);
+}
+
+.sideMenuClass a:hover {
+  color: #c4cdf2;
+}
+
+/* design for the top bar with search and profile placeholder */
+.topBar {
+  float: none;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+}
+
+.topBar .search-container {
+  overflow: hidden;
+  margin-left: 17%;
+  width: 50%;
+}
+
+.topBar .search-container input {
+  padding: 6px;
+  height: 23px;
+  margin-top: 8px;
+  font-size: 17px;
+  background-color: #f3f3f3;
+  border: none;
+  width: 90%;
+  float: left;
+}
+
+.topBar .search-container button {
+  float: left;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+.topBar .profile-container{
+  float: right;
+  margin-top: 11px;
+  margin-left: 20px;
+}
+
+.topBar .profile-container a {
+  font-size: 15px;
+  padding: 6px;
+  margin-right: 16px;
+}
+
+/* Design for the quick access files placeholder */
+.quick-access-class {
+  margin-left: 17%;
+}
+
+.quick-access-class .file-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+}
+
+.quick-access-class .file-grid .file-item {
+  border: 1px solid;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+}
+
+.quick-access-class .file-grid .file-item .share-button{
+  width: 200px;
+  border: none;
+}
+
+.quick-access-class .file-grid .file-item .share-button:hover{
+  background-color: rgb(206, 206, 206);
+}
+
+.file-img{
+  width: 190px;
+  height: 100px;
+}
+
+.quick-access-class .file-grid .file-item .file-column-1{
+  float: left;
+  width: 25%;
+  text-align: center;
+  background-color: rgb(236, 236, 236);
+}
+
+.quick-access-class .file-grid .file-item .file-column-2{
+  float: left;
+  width: 75%;
+  text-align: center;
+}
+
+.quick-access-class .file-grid .file-item .file-column-1 p,
+.quick-access-class .file-grid .file-item .file-column-2 p{
+  margin-bottom: 4px;
+  margin-top: 7px;
+}
+
+.quick-access-class .file-grid .file-item .file-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* design for contact container */
+.contact-container{
+  margin-left: 17%;
+}
+
+.contact-container .canvas-group, .contact-container .uoa-group {
+  background-color: rgb(236, 236, 236);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .contact-container .canvas-group:hover,
+.contact-container .uoa-group:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+.contact-container .contact-content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.contact-container .contact-content .canvas-table td,
+.contact-container .contact-content .canvas-table th {
+  width: 300px;
+  text-align: left;
+  filter: grayscale(100%);
+}
+
+.contact-container .contact-content .uoa-table td,
+.contact-container .contact-content .uoa-table th {
+  width: 300px;
+  text-align: left;
+  filter: grayscale(100%);
+}
+
+.icon-img{
+  vertical-align: sub;
+  width: 21px;
+  height: auto;
+}
+
+/* design for the popup modal when sharing and successful modal */
+.share-modal, .succeed-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  /* set the opacity in the background of the popup modal */
+  background-color: rgba(0,0,0,0.4);
+}
+
+.succeed-modal-content{
+  text-align: center;
+}
+.modal-content, .succeed-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close-model, .successful-close-model {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-model:hover,
+.close-model:focus,
+.successful-close-model:hover,
+.successful-close-model:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.share-box{
+  width: 450px;
+  padding: 5px;
+  margin: 3px;
+}
+
+.autho-box{
+  float: right;
+  padding: 4px;
+  margin-top: 4px;
+}
+
+#canvas{
+  margin-right: 73px;
+}
+
+#people{
+  margin-right: 130px;
+}
+
+#link{
+  margin-right: 150px;
+}
+
+#canvas-share-box{
+  width: 464px;
+}
+
+.confirm-button{
+  float: right;
+}
